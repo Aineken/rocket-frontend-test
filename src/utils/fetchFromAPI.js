@@ -1,19 +1,21 @@
 import axios from "axios";
 
-export const BASE_URL = "https://youtube-v31.p.rapidapi.com";
+const BASE_URL = "https://api.unsplash.com/photos?query=animals";
 
+const accessKey = process.env.KEY;
 const options = {
   params: {
-    maxResults: 50,
+    page: 1,
+    per_page: 30,
+    order_by: "latest",
   },
   headers: {
-    "X-RapidAPI-Key": "414c022541msh6ca9a1f92cd529ap193674jsn417bada6bd23",
-    "X-RapidAPI-Host": "youtube-v31.p.rapidapi.com",
+    Authorization: `Client-ID ${accessKey}`,
   },
 };
 
-export const fetchFromAPI = async (url) => {
-  const { data } = await axios.get(`${BASE_URL}/${url}`, options);
+export const fetchFromAPI = async () => {
+  const { data } = await axios.get(BASE_URL, options);
 
   return data;
 };

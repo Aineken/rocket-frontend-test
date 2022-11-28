@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const NavBar = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
-  padding-top: 2rem;
+  padding: 2rem 1rem;
+
   background-color: #000;
   width: 100%;
   position: relative;
@@ -24,6 +24,13 @@ export const NavBar = styled.div`
   }
   @media ${(props) => props.theme.breakpoints.sm} {
   }
+
+  span {
+    font-weight: 700;
+    color: #fff;
+    margin-left: 3rem;
+    font-size: 3rem;
+  }
 `;
 
 export const Div1 = styled.div`
@@ -32,6 +39,7 @@ export const Div1 = styled.div`
 
 export const Div2 = styled.div`
   display: flex;
+  gap: 50px;
 `;
 
 export const NavLink = styled.a`
@@ -40,7 +48,6 @@ export const NavLink = styled.a`
   line-height: 32px;
   display: flex;
   width: max-content;
-
   justify-content: ${(props) => (props.left ? "start" : "center")};
   align-items: center;
   color: ${(props) => (props.white ? "#fff" : "rgba(255, 255, 255, 0.75)")};
@@ -55,7 +62,9 @@ export const NavLink = styled.a`
     padding: 0.5rem;
   }
 
-  p {
+  span {
     margin-left: 10px;
+    font-size: 20px;
+    font-weight: 400;
   }
 `;
