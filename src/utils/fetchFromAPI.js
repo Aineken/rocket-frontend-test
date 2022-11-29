@@ -2,7 +2,6 @@ import axios from "axios";
 
 const BASE_URL = "https://api.unsplash.com/photos?query=animals";
 
-const accessKey = process.env.KEY;
 const options = {
   params: {
     page: 1,
@@ -10,7 +9,7 @@ const options = {
     order_by: "latest",
   },
   headers: {
-    Authorization: `Client-ID ${accessKey}`,
+    Authorization: `Client-ID ${process.env.REACT_APP_ACCESS_KEY}`,
   },
 };
 
