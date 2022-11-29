@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchFromAPI } from "../../utils/fetchFromAPI";
+import Photos from "../Photos/Photos";
 
 function MainSection() {
   //   const [selectedCategory, setSelectedCategory] = useState("Astana");
@@ -18,16 +19,7 @@ function MainSection() {
 
   console.log(photos);
 
-  return (
-    <div>
-      {photos &&
-        photos.map((photo, index) => (
-          <div key={index}>
-            {photo.id && <img src={photo.urls.small} alt={photo.description} />}
-          </div>
-        ))}
-    </div>
-  );
+  return <Photos photos={photos} />;
 }
 
 export default MainSection;

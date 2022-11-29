@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const BASE_URL = "https://api.unsplash.com/photos?query=animals";
+const BASE_URL = "https://api.unsplash.com/photos";
 
 const options = {
   params: {
-    page: 1,
+    query: "naruto",
     per_page: 30,
     order_by: "latest",
   },
