@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { fetchFromAPI } from "../../utils/fetchFromAPI";
+import { fetchFromAPI } from "../../api";
+import { MainTitle } from "../../styles/GlobalComponents";
+
 import Photos from "../Photos/Photos";
 
 function MainSection() {
-  //   const [selectedCategory, setSelectedCategory] = useState("Astana");
   const [photos, setPhotos] = useState(null);
 
   useEffect(() => {
@@ -19,7 +20,12 @@ function MainSection() {
 
   console.log(photos);
 
-  return <Photos photos={photos} />;
+  return (
+    <>
+      <MainTitle>Welcome</MainTitle>
+      <Photos photos={photos} />;
+    </>
+  );
 }
 
 export default MainSection;

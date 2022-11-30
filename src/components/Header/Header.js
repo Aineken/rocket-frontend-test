@@ -14,18 +14,24 @@ function Header() {
         </Link>
       </Div1>
       <Div2>
-        <NavLink white>
-          <FaSearch />
-          <span>Search</span>
-        </NavLink>
-        <NavLink white>
-          <FaHeart />
-          <span>Likes</span>
-        </NavLink>
-        <NavLink white>
-          <FaHistory />
-          <span>History</span>
-        </NavLink>
+        <Link to="/search">
+          <NavLink>
+            <FaSearch />
+            <span>Search</span>
+          </NavLink>
+        </Link>
+        <Link>
+          <NavLink>
+            <FaHeart />
+            <span>Likes</span>
+          </NavLink>
+        </Link>
+        <Link>
+          <NavLink>
+            <FaHistory />
+            <span>History</span>
+          </NavLink>
+        </Link>
       </Div2>
     </NavBar>
   );

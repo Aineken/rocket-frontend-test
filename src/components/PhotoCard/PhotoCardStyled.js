@@ -6,6 +6,7 @@ export const Card = styled.li`
   :hover .onHover {
     opacity: 1;
     background: rgba(40, 36, 22, 0.5);
+    backdrop-filter: blur(10px);
   }
   @media ${(props) => props.theme.breakpoints.sm} {
   }
@@ -28,12 +29,12 @@ export const InfoContainer = styled.div`
   height: 100%;
   display: grid;
   place-content: center;
-  backdrop-filter: blur(10px);
+
   color: #fff;
   z-index: 3;
   border-radius: 8px;
   opacity: 0;
-  transition: 0.5s;
+  transition: 0.3s;
 `;
 
 export const CardImg = styled.img`
@@ -68,4 +69,11 @@ export const IconsContainer = styled.div`
   width: max-content;
   gap: 30px;
   margin: 30px auto auto;
+  .icons:hover {
+    transform: scale(1.2);
+    color: black;
+  }
+  .icons {
+    transition: transform 0.4s ease;
+  }
 `;

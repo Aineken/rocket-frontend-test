@@ -2,7 +2,6 @@ import React from "react";
 import { FiDownload } from "react-icons/fi";
 import { BsArrowsAngleExpand } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 import {
   Card,
@@ -14,7 +13,13 @@ import {
   InfoContainer,
 } from "./PhotoCardStyled";
 
-function PhotoCard({ photo: { id, urls, user } }) {
+const likePhoto = (id) => {};
+
+function PhotoCard({
+  photo: { id, urls, user },
+  selectedCategory,
+  setSelectedCategory,
+}) {
   return (
     <Card>
       <CardMedia src={urls.regular} alt={id} />
@@ -23,9 +28,9 @@ function PhotoCard({ photo: { id, urls, user } }) {
         <CardTitle>{user.name}</CardTitle>
         <CardName>@${user.username}</CardName>
         <IconsContainer>
-          <FiDownload />
-          <BsArrowsAngleExpand />
-          <FaHeart />
+          <FiDownload className="icons" size={30} />
+          <BsArrowsAngleExpand className="icons" size={25} />
+          <FaHeart onClick={likePhoto(id)} className="icons" size={30} />
         </IconsContainer>
       </InfoContainer>
     </Card>

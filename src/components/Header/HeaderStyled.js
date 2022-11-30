@@ -42,7 +42,7 @@ export const Div2 = styled.div`
   gap: 50px;
 `;
 
-export const NavLink = styled.a`
+export const NavLink = styled.div`
   font-size: ${(props) => (props.main ? "2.5rem" : "2rem")};
   font-weight: ${(props) => (props.main ? "500" : null)};
   line-height: 32px;
@@ -54,9 +54,9 @@ export const NavLink = styled.a`
   transition: 0.4s ease;
 
   &:hover {
-    color: #fff;
-    opacity: 1;
     cursor: pointer;
+    color: white;
+    transform: scale(1.05);
   }
   @media ${(props) => props.theme.breakpoints.sm} {
     padding: 0.5rem;

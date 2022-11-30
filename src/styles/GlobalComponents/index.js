@@ -28,3 +28,12 @@ export const Spinner = styled.div`
   height: 24px;
   border-radius: 50%;
 `;
+
+export const MainTitle = styled.h3`
+  font-size: 72px;
+  line-height: 86px;
+  /* identical to box height */
+  text-align: center;
+  margin-top: 50px;
+  color: #000000;
+`;
