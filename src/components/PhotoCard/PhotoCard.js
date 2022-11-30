@@ -18,6 +18,8 @@ const likePhoto = (id) => {
   likePhotoFromAPI(id)
     .then((data) => {
       console.log(data);
+
+      console.log("blyaaafds");
     })
     .catch((error) => {
       console.log("hello");

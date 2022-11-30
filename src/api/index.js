@@ -35,6 +35,8 @@ export const likedPhotosFromAPI = async () => {
 
 export const likePhotoFromAPI = async (id) => {
   // options.params.id = id;
+  options.headers.Authorization =
+    "Client-ID I4dJMMTM3yOv2meBs6hOlkjqu0hLsvDKSyYUYeqiNWI";
   const { data } = await axios.post(`${BASE_URL}/photos/${id}/like`, options);
 
   return data;
