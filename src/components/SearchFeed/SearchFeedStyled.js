@@ -18,6 +18,7 @@ export const SearchContainer = styled.div`
     right: 0;
     border-left: 9999px solid #000;
     box-shadow: 9999px 0 0 #000;
+  }
 `;
 
 export const SearchTitle = styled.h4`

@@ -20,7 +20,7 @@ function Header() {
             <span>Search</span>
           </NavLink>
         </Link>
-        <Link>
+        <Link to="/likes">
           <NavLink>
             <FaHeart />
             <span>Likes</span>

@@ -4,14 +4,14 @@ const BASE_URL = "https://api.unsplash.com";
 
 const options = {
   params: {
-    per_page: 30,
+    per_page: 10,
   },
   headers: {
     Authorization: `Client-ID ${process.env.REACT_APP_ACCESS_KEY}`,
   },
 };
 
-export const fetchFromAPI = async (query) => {
+export const fetchFromAPI = async () => {
   const { data } = await axios.get(`${BASE_URL}/photos`, options);
 
   return data;
@@ -27,14 +27,15 @@ export const searchFromAPI = async (query) => {
   return results;
 };
 
-export const likePhoto = async (id) => {
-  const { data } = await axios.post(`${BASE_URL}/search/photos/${id}/like`);
+export const likedPhotosFromAPI = async () => {
+  const { data } = await axios.get(`${BASE_URL}/users/andrzul/likes`, options);
 
   return data;
 };
 
-export const deletePhoto = async (id) => {
-  await axios.delete(`${BASE_URL}/${id}/like`);
+export const likePhotoFromAPI = async (id) => {
+  // options.params.id = id;
+  const { data } = await axios.post(`${BASE_URL}/photos/${id}/like`, options);
 
-  return id;
+  return data;
 };

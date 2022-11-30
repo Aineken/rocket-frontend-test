@@ -12,14 +12,19 @@ import {
   IconsContainer,
   InfoContainer,
 } from "./PhotoCardStyled";
+import { likePhotoFromAPI } from "../../api";
 
-const likePhoto = (id) => {};
+const likePhoto = (id) => {
+  likePhotoFromAPI(id)
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log("hello");
+    });
+};
 
-function PhotoCard({
-  photo: { id, urls, user },
-  selectedCategory,
-  setSelectedCategory,
-}) {
+function PhotoCard({ photo: { id, urls, user } }) {
   return (
     <Card>
       <CardMedia src={urls.regular} alt={id} />
@@ -30,7 +35,7 @@ function PhotoCard({
         <IconsContainer>
           <FiDownload className="icons" size={30} />
           <BsArrowsAngleExpand className="icons" size={25} />
-          <FaHeart onClick={likePhoto(id)} className="icons" size={30} />
+          <FaHeart onClick={() => likePhoto(id)} className="icons" size={30} />
         </IconsContainer>
       </InfoContainer>
     </Card>

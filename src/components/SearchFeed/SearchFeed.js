@@ -10,7 +10,7 @@ import {
 } from "./SearchFeedStyled";
 
 function SearchFeed() {
-  const [selectedCategory, setSelectedCategory] = useState("Astana");
+  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   const [photos, setPhotos] = useState(null);
 
   useEffect(() => {
@@ -22,22 +22,28 @@ function SearchFeed() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [selectedCategory]);
 
   return (
-    <SearchContainer>
-      <SearchTitle>Search</SearchTitle>
-      <CategoriesContainer>
-        {categories.map((category, idx) => {
-          return <Categories key={idx}>{category}</Categories>;
-        })}
-      </CategoriesContainer>
-      <Photos
-        selectedCategory={selectedCategory}
-        setSelectedCategory={setSelectedCategory}
-        photos={photos}
-      />
-    </SearchContainer>
+    <div>
+      <SearchContainer>
+        <SearchTitle>Search</SearchTitle>
+        <CategoriesContainer>
+          {categories.map((category, idx) => {
+            return (
+              <Categories
+                key={idx}
+                onClick={() => setSelectedCategory(category)}
+                style={{ opacity: category === selectedCategory ? "1" : "0.8" }}
+              >
+                {category}
+              </Categories>
+            );
+          })}
+        </CategoriesContainer>
+      </SearchContainer>
+      <Photos photos={photos} />
+    </div>
   );
 }
 
