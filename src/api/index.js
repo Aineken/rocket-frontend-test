@@ -33,11 +33,19 @@ export const likedPhotosFromAPI = async () => {
   return data;
 };
 
-export const likePhotoFromAPI = async (id) => {
-  // options.params.id = id;
-  options.headers.Authorization =
-    "Client-ID I4dJMMTM3yOv2meBs6hOlkjqu0hLsvDKSyYUYeqiNWI";
-  const { data } = await axios.post(`${BASE_URL}/photos/${id}/like`, options);
+export const likePhotoFromAPI = (id) => {
+  const reqInstance = {
+    headers: {
+      Authorization: `Bearer ${process.env.REACT_APP_ACCESS_TOKEN}`,
+    },
+  };
 
-  return data;
+  axios
+    .post(`https://api.unsplash.com/photos/${id}/like`, reqInstance)
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };

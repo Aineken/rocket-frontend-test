@@ -6,6 +6,7 @@ import Photos from "../Photos/Photos";
 
 function LikedPhotos() {
   const [photos, setPhotos] = useState(null);
+  let number = 0;
 
   useEffect(() => {
     setPhotos(null);
@@ -16,10 +17,15 @@ function LikedPhotos() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [number]);
+
+  const clickButton = () => {
+    number++;
+    console.log(number);
+  };
   return (
     <>
-      <MainTitle>Liked Photos</MainTitle>
+      <MainTitle onClick={() => clickButton()}>Liked Photos</MainTitle>
       <Photos photos={photos} />;
     </>
   );

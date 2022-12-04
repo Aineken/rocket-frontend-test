@@ -14,18 +14,6 @@ import {
 } from "./PhotoCardStyled";
 import { likePhotoFromAPI } from "../../api";
 
-const likePhoto = (id) => {
-  likePhotoFromAPI(id)
-    .then((data) => {
-      console.log(data);
-
-      console.log("blyaaafds");
-    })
-    .catch((error) => {
-      console.log("hello");
-    });
-};
-
 function PhotoCard({ photo: { id, urls, user } }) {
   return (
     <Card>
@@ -37,7 +25,11 @@ function PhotoCard({ photo: { id, urls, user } }) {
         <IconsContainer>
           <FiDownload className="icons" size={30} />
           <BsArrowsAngleExpand className="icons" size={25} />
-          <FaHeart onClick={() => likePhoto(id)} className="icons" size={30} />
+          <FaHeart
+            onClick={() => likePhotoFromAPI(id)}
+            className="icons"
+            size={30}
+          />
         </IconsContainer>
       </InfoContainer>
     </Card>
