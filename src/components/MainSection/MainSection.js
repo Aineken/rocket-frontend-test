@@ -14,6 +14,7 @@ function MainSection() {
         setPhotos(data);
       })
       .catch((error) => {
+        setPhotos(null);
         console.log(error);
       });
   }, []);

@@ -4,7 +4,7 @@ const BASE_URL = "https://api.unsplash.com";
 
 const options = {
   params: {
-    per_page: 10,
+    per_page: 18,
   },
   headers: {
     Authorization: `Client-ID ${process.env.REACT_APP_ACCESS_KEY}`,
@@ -34,16 +34,15 @@ export const likedPhotosFromAPI = async () => {
 };
 
 export const likePhotoFromAPI = (id) => {
-  const reqInstance = {
-    headers: {
-      Authorization: `Bearer ${process.env.REACT_APP_ACCESS_TOKEN}`,
-    },
-  };
+  const instance = axios.create({
+    baseURL: "https://api.unsplash.com",
+    headers: { Authorization: `Bearer ${process.env.REACT_APP_ACCESS_TOKEN}` },
+  });
 
-  axios
-    .post(`https://api.unsplash.com/photos/${id}/like`, reqInstance)
-    .then(({ data }) => {
-      return data;
+  instance
+    .post(`/photos/${id}/like`)
+    .then((res) => {
+      return res;
     })
     .catch((error) => {
       console.log(error);

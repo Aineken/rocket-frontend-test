@@ -15,6 +15,11 @@ import {
 import { likePhotoFromAPI } from "../../api";
 
 function PhotoCard({ photo: { id, urls, user } }) {
+  const likeButton = async (id) => {
+    const data = await likePhotoFromAPI(id);
+    console.log(data);
+  };
+
   return (
     <Card>
       <CardMedia src={urls.regular} alt={id} />
@@ -25,11 +30,7 @@ function PhotoCard({ photo: { id, urls, user } }) {
         <IconsContainer>
           <FiDownload className="icons" size={30} />
           <BsArrowsAngleExpand className="icons" size={25} />
-          <FaHeart
-            onClick={() => likePhotoFromAPI(id)}
-            className="icons"
-            size={30}
-          />
+          <FaHeart onClick={() => likeButton(id)} className="icons" size={30} />
         </IconsContainer>
       </InfoContainer>
     </Card>

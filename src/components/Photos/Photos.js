@@ -8,8 +8,8 @@ function Photos({ photos }) {
     <Spinner />
   ) : (
     <PhotosBlock>
-      {photos.map((photo, index) => (
-        <div key={index}>{photo.id && <PhotoCard photo={photo} />}</div>
+      {photos.map((photo) => (
+        <div key={photo.id}>{photo.id && <PhotoCard photo={photo} />}</div>
       ))}
     </PhotosBlock>
   );
